@@ -1,0 +1,28 @@
+trigger:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+image: "pytorchlightning/lightning-thunder:ubuntu24.04-cuda12.6.3-cudnn-fe1.10.0-py3.10-pt_2.7.1-dev"
+machine: "L4_X_4"
+timeout: "45" # minutes
+parametrize:
+  matrix:
+    dependency: ["", "compiler"]
+  include: []
+  exclude: []
+
+env:
+  SKIP_WITH_CI: "1" # skip single tests with CI
+  NCCL_DEBUG: "INFO"
+  NCCL_IGNORE_DISABLED_P2P: "1"
+  TORCH_VERSION: "2.7.1"
+  RUN_ONLY_CUDA_TESTS: "1" # run CUDA tests only
+
+run: |
+  whereis nvidia
+  nvidia-smi
+  python --version
+  pip --version
+  pip list
