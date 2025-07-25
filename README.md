@@ -1,1 +1,1 @@
-# GitHub Bot code
+# GitHub Bot codes
