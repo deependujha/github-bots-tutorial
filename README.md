@@ -1,1 +1,1 @@
-# github-bots-tutorial
+# GitHub bots tutorial
